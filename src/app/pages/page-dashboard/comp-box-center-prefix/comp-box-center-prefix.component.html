@@ -1,0 +1,17 @@
+<div class="component-container">
+  <div class="component-header">地区企业统计</div>
+  <div class="component-content">
+    <div class="_box_0">全部企业</div>
+    <div class="_box_1 count-text-style">{{data?.total}}</div>
+    <div style="width: 320px; height: 320px; margin-top: 25px;">
+      <comp-rotate-tray [data]="chartValue"></comp-rotate-tray>
+    </div>
+    <div class="_box_2" *ngFor="let item of data?.list">
+      <div class="_box2_prefix">
+        <img src="assets/images/light_blue_bg.png">
+        <span>{{item.area}}</span>
+      </div>
+      <div class="_box2_suffix count-text-style">{{item.area_num}}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+.iframe-container {
+  position: absolute;
+  top: 0;
+  transform: scale(0.8);
+  left: calc(50% - 960px);
+  transition: 0.4s;
+  z-index: 999;
+  overflow: hidden;
+
+  .swiper-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: all .4s;
+
+    img {
+      flex-shrink: 0;
+      width: 1920px;
+      height: 1152px;
+    }
+  }
+
+  .next-button, .prev-button {
+    position: absolute;
+    top: calc(50% - 40px);
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: .4s;
+    border-radius: 50%;
+    background: #09A7E8;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .next-button {
+    right: 24px;
+  }
+
+  .prev-button {
+    left: 24px;
+  }
+}
+
+.frame-show {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.frame-hide {
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.frame-hide-btn {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  transition: .4s;
+  border-radius: 50%;
+  z-index: 999;
+}
+
+.frame-hide-btn:hover {
+  box-shadow: 0 0 10px 10px rgba($color: #D81E06, $alpha: 0.5);
+}

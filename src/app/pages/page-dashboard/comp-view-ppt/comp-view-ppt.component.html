@@ -1,0 +1,8 @@
+<div class="iframe-container" [ngClass]="visible?'frame-show':'frame-hide'" style="width: 1920px; height: 1280px;">
+  <img src="assets/images/frame_hide.png" class="frame-hide-btn" (click)="hideFrame()">
+  <div class="swiper-container" [ngStyle]="{'transform': 'translateX('+-swiperIndex*1920+'px)'}">
+    <img *ngFor="let item of data" [src]="item">
+  </div>
+  <div class="next-button" (click)="next()" [ngStyle]="{'background': swiperIndex==data?.length-1?'#999999':'#09A7E8'}"><img src="assets/images/arrow_right_bold.png"></div>
+  <div class="prev-button" (click)="prev()" [ngStyle]="{'background': swiperIndex==0?'#999999':'#09A7E8'}"><img src="assets/images/arrow_left_bold.png"></div>
+</div>

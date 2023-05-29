@@ -1,0 +1,18 @@
+<app-card [title]="title">
+  <div class="component-container">
+    <!-- <div class="component-header">截至当前数据</div> -->
+    <div class="box-number-container">
+      <div class="box-number-small count-text-style" *ngFor="let item of valueStr">{{item}}</div>
+    </div>
+    <!-- <div class="component-footer">
+      <div>
+        <span>本月环比</span>
+        <span>1.6%</span>
+      </div>
+      <div>
+        <span>增长量</span>
+        <span>1.6%</span>
+      </div>
+    </div> -->
+  </div>
+</app-card>

@@ -1,0 +1,10 @@
+
+<app-card [title]="title">
+  <div class="component-container">
+    <div class="box-tray-outer" [ngStyle]="{'background': 'url('+outerImage+')'}">
+      <div class="box-tray-innner" [ngStyle]="{'transform':'translateX(-'+swiperIndex*484+'px)', 'transition': 'all '+animationDuration+'s'}">
+        <div class="box-tray-item" *ngFor="let item of swiperData" [ngStyle]="{'background': 'url('+innerImage+') no-repeat center'}">{{item}}</div>
+      </div>
+    </div>
+  </div>
+</app-card>

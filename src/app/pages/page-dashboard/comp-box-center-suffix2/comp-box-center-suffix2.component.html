@@ -1,0 +1,33 @@
+<div class="component-container">
+  <div class="component-header" (dblclick)="changeEmit()">全省二级节点排名</div>
+  <div class="component-content">
+    <div style="width: 100%">
+      <div class="chart-head">
+        <div class="chart-head-prefix" (dblclick)="changeEmit()">
+          <span>企业注册量</span>
+        </div>
+        <div class="chart-head-suffix">
+          <div>鹰潭铜行业二级节点</div>
+          <div>排名 {{dataA?.rank}}</div>
+        </div>
+      </div>
+      <div style="width: 100%; height: 380px">
+        <app-chart-b-cylinder [title]="'企业注册量'" [data]="dataA?.list" [rank]="dataA?.rank" [colors]="['#21F3FF', '#00B7FF', 'rgba(34, 68, 172, 0.35)', 'rgba(31, 97, 234, 0.4)']"></app-chart-b-cylinder>
+      </div>
+    </div>
+    <div style="width: 100%">
+      <div class="chart-head">
+        <div class="chart-head-prefix" (dblclick)="changeEmit()">
+          <span>企业解析量</span>
+        </div>
+        <div class="chart-head-suffix">
+          <div>鹰潭铜行业二级节点</div>
+          <div>排名 {{dataB?.rank}}</div>
+        </div>
+      </div>
+      <div style="width: 100%; height: 380px">
+        <app-chart-b-cylinder [title]="'企业解析量'" [data]="dataB?.list" [rank]="dataB?.rank" [colors]="['#FFC662', '#FF9A77', 'rgba(93, 44, 17, 0.35)', 'rgba(234, 55, 31, 0.4)']"></app-chart-b-cylinder>
+      </div>
+    </div>
+  </div>
+</div>

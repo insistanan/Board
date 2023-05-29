@@ -1,0 +1,39 @@
+.component-container {
+  height: 100%;
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .component-header {
+    font-size: 24px;
+    color: #91CEFF;
+  }
+
+  .box-number-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 24px;
+
+    .box-number-small {
+      width: 78px;
+      height: 113px;
+      background: url("../../../../assets/images/box_number_small_bg.png");
+      font-size: 94px;
+      color: #C7E0F7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .component-footer {
+    font-size: 24px;
+    color: #91CEFF;
+    display: flex;
+
+    div {
+      width: 50%;
+    }
+  }
+}

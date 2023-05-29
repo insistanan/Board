@@ -1,0 +1,22 @@
+<div class="chart-container">
+  <div class="rotate-container">
+    <div echarts [options]="rotateRightOption" class="chart" (chartInit)="chart = $event" style="width: 100%; height: 100%;"></div>
+  </div>
+  <div class="arrow-container">
+    <!-- <i nz-icon nzType="up" nzTheme="outline"></i>
+    <i nz-icon nzType="up" nzTheme="outline" style="transform: rotate(45deg);"></i>
+    <i nz-icon nzType="up" nzTheme="outline" style="transform: rotate(90deg);"></i>
+    <i nz-icon nzType="up" nzTheme="outline" style="transform: rotate(135deg);"></i>
+    <i nz-icon nzType="up" nzTheme="outline" style="transform: rotate(180deg);"></i>
+    <i nz-icon nzType="up" nzTheme="outline" style="transform: rotate(225deg);"></i>
+    <i nz-icon nzType="up" nzTheme="outline" style="transform: rotate(270deg);"></i>
+    <i nz-icon nzType="up" nzTheme="outline" style="transform: rotate(315deg);"></i> -->
+    <div class="arrow-container-in"></div>
+  </div>
+  <div class="data-container">
+    <div echarts [options]="dataOption" class="chart" (chartInit)="chart1 = $event" style="width: 100%; height: 100%;"></div>
+  </div>
+  <div class="rotate-left-container">
+    <div echarts [options]="rotateLeftOption" class="chart" (chartInit)="rotateLeftChart = $event" style="width: 100%; height: 100%;"></div>
+  </div>
+</div>

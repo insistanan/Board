@@ -1,0 +1,6 @@
+<div class="app-card">
+  <div class="app-card-title" *ngIf="isTitle">{{title}}</div>
+  <div class="app-card-content" [ngStyle]="{'height': isTitle?'calc(100% - 50px)':'100%'}">
+    <ng-content></ng-content>
+  </div>
+</div>

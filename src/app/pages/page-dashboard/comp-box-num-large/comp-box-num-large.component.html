@@ -1,0 +1,23 @@
+
+<app-card [title]="title">
+  <div class="component-container">
+    <div class="number-container-outer">
+      <div class="than-container" [ngStyle]="{'color': data1 > data?'#14F4E1':'#EA5151'}">
+        <div>
+          <span>本月环比</span>
+          <img class="arrow-l" *ngIf="data1 > data" src="assets/images/arrow_up_l.png">
+          <img class="arrow-l" *ngIf="data1 <= data" src="assets/images/arrow_down_l.png">
+          <span>{{data&&data1?((data1 - data)/data * 100).toFixed(2):0}}%</span>
+        </div>
+        <div>
+          <img class="arrow" *ngIf="data1 > data" src="assets/images/arrow_up.png">
+          <img class="arrow" *ngIf="data1 <= data" src="assets/images/arrow_down.png">
+          <span>{{data1}}</span>
+        </div>
+      </div>
+      <div class="number-container-inner">
+        <span class="count-text-style">{{data}}</span>
+      </div>
+    </div>
+  </div>
+</app-card>

@@ -1,0 +1,9 @@
+<div class="modal-container" [ngClass]="visible?'modal-show':'modal-hide'" style="width: 1920px; height: 1280px;">
+    <div class="modal-header">
+        <div>{{title}}</div>
+        <img src="assets/images/close.png" (click)="close()">
+    </div>
+    <div class="modal-content">
+        <ng-content></ng-content>
+    </div>
+</div>

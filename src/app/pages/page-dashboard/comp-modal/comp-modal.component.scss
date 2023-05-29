@@ -1,0 +1,48 @@
+.modal-container {
+    position: absolute;
+    top: 0;
+    transform: scale(0.8);
+    left: calc(50% - 960px);
+    transition: 0.4s;
+    z-index: 999;
+    background: white;
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100px;
+        padding: 0 24px;
+        border-bottom: solid 1px #e5e5e5;
+
+        div {
+            font-size: 30px;
+        }
+
+        img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+    }
+
+    .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 24px;
+        border-top: solid 1px #e5e5e5;
+    }
+}
+
+.modal-show {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal-hide {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.8);
+}

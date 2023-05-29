@@ -1,0 +1,32 @@
+<div class="component-container">
+  <div class="component-header" (dblclick)="changeEmit()">全省二级节点排名</div>
+  <div class="component-content">
+    <div style="width: 100%">
+      <div class="chart-head">
+        <div class="chart-head-prefix" (dblclick)="changeEmit()">
+          <span>企业接入数</span>
+        </div>
+        <div class="chart-head-suffix">
+          <div>鹰潭铜行业二级节点</div>
+          <div>排名 {{dataA?.rank}}</div>
+        </div>
+      </div>
+      <div style="width: 100%; height: 380px">
+        <app-chart-b-cylinder [title]="'企业接入数'" [data]="dataA?.list" [rank]="dataA?.rank" [colors]="['#85FFE4', '#00FFDE', 'rgba(26, 83, 93, 0.35)', 'rgba(26, 81, 74, 0.4)']"></app-chart-b-cylinder>
+      </div>
+    </div>
+    <div style="width: 100%">
+      <div class="chart-head">
+        <!-- <div class="chart-head-prefix">
+        </div>
+        <div class="chart-head-suffix">
+          <div>鹰潭铜行业二级节点</div>
+          <div>排名 {{dataB?.rank}}</div>
+        </div> -->
+      </div>
+      <div style="width: 100%; height: 380px">
+        <!-- <app-chart-b-cylinder [data]="dataB?.list" [colors]="['#EA7BFF', '#B15EC0', 'rgba(94, 58, 120, 0.35)', 'rgba(150, 35, 176, 0.4)']"></app-chart-b-cylinder> -->
+      </div>
+    </div>
+  </div>
+</div>

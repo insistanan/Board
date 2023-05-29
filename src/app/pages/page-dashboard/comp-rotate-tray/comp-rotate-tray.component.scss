@@ -1,0 +1,71 @@
+.chart-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  .rotate-container {
+    width: 100%;
+    height: 100%;
+    animation: rotateCircle 10s infinite linear;
+  }
+
+  @keyframes rotateCircle {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .arrow-container {
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    border: 1px solid #50C7F5;
+    border-radius: 50%;
+
+    .arrow-container-in {
+      width: calc(100% - 40px);
+      height: calc(100% - 40px);
+      border: 1px solid #50C7F5;
+      border-radius: 50%;
+      margin: 20px;
+    }
+
+    i {
+      color: #50C7F5;
+      position: absolute;
+      left: calc(50% - 10px);
+      font-size: 20px;
+      transform-origin: 10px 50%
+    }
+  }
+
+  .data-container {
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    // top: -40px;
+    z-index: 999;
+    // margin-top: calc(7.5% + 1rem);
+  }
+
+  .rotate-left-container {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    animation: rotateLeft 10s infinite linear;
+  }
+
+  @keyframes rotateLeft {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+}

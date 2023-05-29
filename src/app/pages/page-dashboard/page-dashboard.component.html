@@ -1,0 +1,329 @@
+<div class="page-content">
+  <div class="box-header">工业互联网标识解析二级节点（鹰潭）</div>
+  <div class="box-prefix">
+    <div class="card-container">
+      <app-card title="企业注册数量">
+        <div class="trans-number-container">
+          <div class="trans-number-label">当月完成</div>
+          <app-trans-number
+            [value]="comNumFigureData?comNumFigureData[comNumFigureData?.length - 1]?.seriesData0 : 0"
+            [width]="28"
+            [height]="38"
+            [fontSize]="34"
+            [fontFamily]="'DS-DIGI-1'"
+            [color]="'#00FFCC'"
+            [background]="'url(assets/images/number_bg.png)'"
+            [maxLength]="7"
+          ></app-trans-number>
+        </div>
+        <div style="height: calc(100% - 52px);">
+          <app-chart-b-l [data]="comNumFigureData" name="企业注册数量"></app-chart-b-l>
+        </div>
+      </app-card>
+      <comp-box-swiper2
+        title="应用1-标识解析编码"
+        outerImage="assets/images/tray_yellow.png"
+        innerImage="assets/images/frame_yellow.png"
+        [data]="idCodeParse"
+        (selectChange)="showConfigModal(1)"
+      ></comp-box-swiper2>
+    </div>
+    <div class="card-container">
+      <app-card title="企业产品注册量">
+        <div class="trans-number-container">
+          <div class="trans-number-label">当月完成</div>
+          <app-trans-number
+            [value]="loginNumFigureData?loginNumFigureData[loginNumFigureData?.length - 1]?.seriesData0 : 0"
+            [width]="28"
+            [height]="38"
+            [fontSize]="34"
+            [fontFamily]="'DS-DIGI-1'"
+            [color]="'#00FFCC'"
+            [background]="'url(assets/images/number_bg.png)'"
+            [maxLength]="7"
+          ></app-trans-number>
+        </div>
+        <div style="height: calc(100% - 52px);">
+          <app-chart-b-l name="企业产品注册量" [data]="loginNumFigureData" [color]="['#E7B72D', '#E27125']"></app-chart-b-l>
+        </div>
+      </app-card>
+      <comp-box-swiper2
+        title="应用2-产品溯源"
+        outerImage="assets/images/tray_blue.png"
+        innerImage="assets/images/frame_blue.png"
+        [data]="productTrace"
+        (selectChange)="showConfigModal(2)"
+      ></comp-box-swiper2>
+    </div>
+    <div class="card-container">
+      <app-card title="企业标识解析量">
+        <div class="trans-number-container">
+          <div class="trans-number-label">当月完成</div>
+          <app-trans-number
+            [value]="parseNumFigureData?parseNumFigureData[parseNumFigureData?.length - 1]?.seriesData0 : 0"
+            [width]="28"
+            [height]="38"
+            [fontSize]="34"
+            [fontFamily]="'DS-DIGI-1'"
+            [color]="'#00FFCC'"
+            [background]="'url(assets/images/number_bg.png)'"
+            [maxLength]="7"
+          ></app-trans-number>
+        </div>
+        <div style="height: calc(100% - 52px);">
+          <app-chart-b-l name="企业标识解析量" [data]="parseNumFigureData" [color]="['#4F6CFF', '#35C4FF']"></app-chart-b-l>
+        </div>
+      </app-card>
+      <comp-box-swiper2
+        title="应用3-仓储管理"
+        outerImage="assets/images/tray_green.png"
+        innerImage="assets/images/frame_green.png"
+        [data]="warehouseManager"
+        (selectChange)="showConfigModal(3)"
+      ></comp-box-swiper2>
+    </div>
+  </div>
+  <div class="box-center">
+    <div class="box-center-prefix">
+      <!-- <comp-box-center-prefix [data]="comAreaNumData"></comp-box-center-prefix> -->
+      <comp-box-center-prefix2 [dataA]="cityComNumFigureData" [dataB]="cityComApplyNumFigureData" (selectChange)="showCity()"></comp-box-center-prefix2>
+    </div>
+    <div class="box-center-center">
+      <img class="map-prefix" src="assets/images/map_prefix.png">
+      <img class="map-image" src="assets/images/map.png" style="width: 1244px; height: 1255px; left: calc(50% - 622px)">
+      <div *ngFor="let item of areaParseNumData; let index = index" class="map-location" [ngStyle]="item.locationStyle">
+        <img src="assets/images/map_checked.png">
+        <div>{{item.area}}</div>
+        <div>{{item.com_num}}家</div>
+      </div>
+      <!-- <div *ngFor="let item of areaParseNumData; let index = index" class="map-content" [ngClass]="mapIndex==index?'map-show':'map-hide'">
+        <img class="map-image" [src]="item.map">
+        <div class="map-location" [ngStyle]="item.locationStyle">
+          <img src="assets/images/map_checked.png">
+          <div>{{item.area}}</div>
+        </div>
+        <div class="map-info" [ngStyle]="item.infoStyle">
+          <div class="map-info-title">鹰潭市-{{item.area}}</div>
+          <div class="map-info-content">
+            <div class="map-info-item">
+              <div>{{item.com_num}}</div>
+              <div>企业总数</div>
+            </div>
+            <div class="map-info-item">
+              <div>{{item.parse_num}}</div>
+              <div>日均解析次数</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <img class="map-suffix" src="assets/images/map_suffix.png">
+      <!-- <div class="box-center-info">
+        <div class="box-center-info-item" *ngFor="let item of thisMonthComNumData">
+          <div class="box-center-info-item-title">{{thisMonthComNumKey[item.name]}}</div>
+          <div class="box-center-info-item-content">
+            <div>
+              <span class="count-text-style">{{item.this_month}}</span>
+              <span>家</span>
+            </div>
+            <div>
+              <span>本月新增</span>
+              <span>{{item.this_month - item.last_month}}</span>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- <div class="small-number-container" style="left: 250px; top: 100px">
+        <div class="small-number-head">企业注册数</div>
+        <div class="small-number-body">
+          <span>{{todayInfoData?.company_num || 0}}</span>
+          <span>家</span>
+        </div>
+      </div>
+      <div class="small-number-container" style="left: 250px; bottom: 350px">
+        <div class="small-number-head">企业应用数 </div>
+        <div class="small-number-body">
+          <span>{{todayInfoData?.com_apply_num || 0}}</span>
+          <span>家</span>
+        </div>
+      </div> -->
+      <div class="large-number-container" style="left: 250px; top: 50px">
+        <div class="large-number-head">企业注册数</div>
+        <div class="large-number-body">
+          <app-trans-number
+            [value]="todayInfoData?.company_num || 0"
+            [width]="60"
+            [height]="82"
+            [fontSize]="80"
+            [fontFamily]="'DS-DIGI-1'"
+            [color]="'#F4AD14'"
+            [maxLength]="3"
+            [background]="'url(assets/images/number_bg.png)'"
+          ></app-trans-number>
+        </div>
+      </div>
+      <div class="large-number-container" style="left: 250px; bottom: 300px">
+        <div class="large-number-head" (dblclick)="showApply()">企业应用数</div>
+        <div class="large-number-body">
+          <app-trans-number
+            [value]="applyCount || 0"
+            [width]="60"
+            [height]="82"
+            [fontSize]="80"
+            [fontFamily]="'DS-DIGI-1'"
+            [color]="'#F4AD14'"
+            [maxLength]="3"
+            [background]="'url(assets/images/number_bg.png)'"
+          ></app-trans-number>
+        </div>
+      </div>
+      <div class="large-number-container" style="right: 180px; top: 50px">
+        <div class="large-number-head">累计注册量</div>
+        <div class="large-number-body">
+          <app-trans-number
+            [value]="todayInfoData?.login_num || 0"
+            [width]="60"
+            [height]="82"
+            [fontSize]="80"
+            [fontFamily]="'DS-DIGI-1'"
+            [color]="'#F4AD14'"
+            [maxLength]="9"
+            [background]="'url(assets/images/number_bg.png)'"
+          ></app-trans-number>
+        </div>
+      </div>
+      <div class="large-number-container" style="right: 180px; bottom: 300px">
+        <div class="large-number-head">累计解析量</div>
+        <div class="large-number-body">
+          <app-trans-number
+            [value]="todayInfoData?.parse_num || 0"
+            [width]="60"
+            [height]="82"
+            [fontSize]="80"
+            [fontFamily]="'DS-DIGI-1'"
+            [color]="'#F4AD14'"
+            [maxLength]="9"
+            [background]="'url(assets/images/number_bg.png)'"
+          ></app-trans-number>
+        </div>
+      </div>
+    </div>
+    <div class="box-center-suffix">
+      <comp-box-center-suffix2 [dataA]="cityLoginNumFigureData" [dataB]="cityParseNumFigureData" (selectChange)="showCity()"></comp-box-center-suffix2>
+    </div>
+  </div>
+  <div class="box-suffix">
+    <div class="card-container">
+      <comp-box-video [data]="1" (onShowPPT)="showPPT($event)"></comp-box-video>
+      <comp-box-video [data]="2" (onShowIFrame)="showIFrame($event)"></comp-box-video>
+      <!-- <comp-box-num-large title="高新区月解析量" [data]="monthParseData0?.this_month" [data1]="monthParseData0?.last_month"></comp-box-num-large>
+      <comp-box-num-small title="高新区日均解析量" [data]="dayParseData0?.parse_num"></comp-box-num-small> -->
+    </div>
+    <div class="card-container">
+      <comp-box-video [data]="3" (onShowPPT)="showPPT($event)"></comp-box-video>
+      <comp-box-video [data]="4" (onShowIFrame)="showIFrame($event)"></comp-box-video>
+      <!-- <comp-box-num-large title="余江区月解析量" [data]="monthParseData1?.this_month" [data1]="monthParseData1?.last_month"></comp-box-num-large>
+      <comp-box-num-small title="余江区日均解析量" [data]="dayParseData1?.parse_num"></comp-box-num-small> -->
+    </div>
+    <div class="card-container">
+      <comp-box-video [data]="5" (onShowPPT)="showPPT($event)"></comp-box-video>
+      <comp-box-video [data]="6" (onShowIFrame)="showIFrame($event)"></comp-box-video>
+      <!-- <comp-box-num-large title="贵溪区月解析量" [data]="monthParseData2?.this_month" [data1]="monthParseData2?.last_month"></comp-box-num-large>
+      <comp-box-num-small title="贵溪区日均解析量" [data]="dayParseData2?.parse_num"></comp-box-num-small> -->
+    </div>
+  </div>
+  <!-- <div class="box-suffix ppt-container" [ngClass]="pptVisible?'ppt-show':'ppt-hide'">
+    <div class="card-container">
+      <app-card [isTitle]="false"><img [src]="pptUrl?pptUrl[0]:''"></app-card>
+      <app-card [isTitle]="false"><img [src]="pptUrl?pptUrl[1]:''"></app-card>
+    </div>
+    <div class="card-container">
+      <app-card [isTitle]="false"><img [src]="pptUrl?pptUrl[2]:''"></app-card>
+      <app-card [isTitle]="false"><img [src]="pptUrl?pptUrl[3]:''"></app-card>
+    </div>
+    <div class="card-container">
+      <app-card [isTitle]="false"><img [src]="pptUrl?pptUrl[4]:''"></app-card>
+      <app-card [isTitle]="false"><img [src]="pptUrl?pptUrl[5]:''"></app-card>
+    </div>
+    <img src="assets/images/frame_hide.png" class="frame-hide-btn" (click)="hidePPT()">
+  </div> -->
+  <div class="ppt-container">
+
+  </div>
+  <div class="box-footer">
+    <!-- <div>鹰潭市-{{areaParseNumData[mapIndex]?.area}}</div> -->
+  </div>
+</div>
+<comp-frame-view [(visible)]="frameVisible" [data]="frameUrl"></comp-frame-view>
+<comp-view-ppt  [(visible)]="pptVisible" [data]="pptUrl"></comp-view-ppt>
+<!-- 修改企业应用数 -->
+<comp-modal [(visible)]="applyVisible" title="企业应用数" (visibleChange)="startTimer()">
+  <div class="apply-content">
+    <input class="apply-input" [(ngModel)]="applyCount">
+    <div class="apply-btn" (click)="updateApplyCount()">保存</div>
+  </div>
+</comp-modal>
+<!-- 修改城市数值 -->
+<comp-modal [(visible)]="cityVisible" title="全省二级节点排名" (visibleChange)="startTimer()">
+  <div class="city-content">
+    <div class="city-header">
+      <div>城市</div>
+      <div>企业接入数</div>
+      <div>企业注册数</div>
+      <div>企业解析数</div>
+      <div>操作</div>
+    </div>
+    <div class="city-row" *ngFor="let item of cityList">
+      <div>
+        <input [(ngModel)]="item.city_name">
+      </div>
+      <div>
+        <input [(ngModel)]="item.company_num">
+      </div>
+      <div>
+        <input [(ngModel)]="item.login_num">
+      </div>
+      <div>
+        <input [(ngModel)]="item.parse_num">
+      </div>
+      <div>
+        <a (click)="saveCityCount(item)">保存</a>
+      </div>
+    </div>
+  </div>
+</comp-modal>
+<!-- 修改应用权限 -->
+<comp-modal [(visible)]="configVisible" [title]="configTitle" (visibleChange)="startTimer()">
+  <div class="city-content">
+    <div class="city-header">
+      <div>企业名称</div>
+      <div>是否应用</div>
+    </div>
+    <ng-container *ngIf="configIndex == '1'">
+      <div class="city-row" *ngFor="let item of configList1">
+        <div>{{item.company_name}}</div>
+        <div>
+          <a (click)="saveConfigState(item)" *ngIf="item.id_code_parse == 0">点击应用</a>
+          <a (click)="saveConfigState(item)" *ngIf="item.id_code_parse == 1" style="color: #999;">取消应用</a>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="configIndex == '2'">
+      <div class="city-row" *ngFor="let item of configList2">
+        <div>{{item.company_name}}</div>
+        <div>
+          <a (click)="saveConfigState(item)" *ngIf="item.product_trace == 0">点击应用</a>
+          <a (click)="saveConfigState(item)" *ngIf="item.product_trace == 1" style="color: #999;">取消应用</a>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="configIndex == '3'">
+      <div class="city-row" *ngFor="let item of configList3">
+        <div>{{item.company_name}}</div>
+        <div>
+          <a (click)="saveConfigState(item)" *ngIf="item.warehouse_manager == 0">点击应用</a>
+          <a (click)="saveConfigState(item)" *ngIf="item.warehouse_manager == 1" style="color: #999;">取消应用</a>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</comp-modal>

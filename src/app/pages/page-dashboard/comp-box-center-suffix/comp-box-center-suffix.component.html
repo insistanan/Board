@@ -1,0 +1,17 @@
+<div class="component-container">
+  <div class="component-header">解析量月排行</div>
+  <div class="component-content">
+    <div class="top-title">
+      <span class="count-text-style">TOP</span>
+      <span class="count-text-style">10</span>
+    </div>
+    <app-progress-lattice
+      *ngFor="let item of data; let index = index"
+      [percentValue]="item.value"
+      [numberValue]="item.parse_num"
+      [index]="index+1"
+      [title]="item.company_name"
+      [width]="480"
+    ></app-progress-lattice>
+  </div>
+</div>

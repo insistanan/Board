@@ -1,0 +1,19 @@
+<div class="progress-container">
+  <div class="progress-index">
+    <img *ngIf="index == 1" src="assets/images/top_a.png">
+    <img *ngIf="index == 2" src="assets/images/top_b.png">
+    <img *ngIf="index == 3" src="assets/images/top_c.png">
+    <div *ngIf="index > 3" class="count-text-style">{{index}}</div>
+  </div>
+  <div style="width: calc(100% - 66px);">
+    <div class="progress-header">
+      <div>{{title}}</div>
+      <div>{{numberValue}}</div>
+    </div>
+    <div class="progress-outer">
+      <div class="progress-inner" [ngStyle]="{'width': value + '%'}">
+        <div class="progress-point" *ngFor="let item of [].constructor(latticeNum); let index = index"></div>
+      </div>
+    </div>
+  </div>
+</div>

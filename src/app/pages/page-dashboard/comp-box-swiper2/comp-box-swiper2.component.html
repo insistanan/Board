@@ -1,0 +1,49 @@
+
+<app-card [title]="title">
+  <div class="component-container">
+    <div class="number-container" (dblclick)="changeEmit()">
+      <div class="number-item">
+        <div>接入企业数</div>
+        <div>{{data?.total || 0}}家</div>
+      </div>
+      <div class="number-item">
+        <div>注册量</div>
+        <div>{{data?.sum_login_num || 0}}次</div>
+      </div>
+      <div class="number-item">
+        <div>解析量</div>
+        <div>{{data?.sum_pare_num || 0}}次</div>
+      </div>
+    </div>
+    <div class="swiper-container">
+      <div class="swiper-label">
+        <span>企业应用排名</span>
+      </div>
+      <div style="width: calc(100% - 50px);height: 100%;overflow: scroll;">
+        <div class="swiper" [ngStyle]="{'transform': 'translateY(-'+swiperIndex*itemHeight+'px)', 'transition': 'all '+animationDuration+''}">
+          <!-- [ngClass]="data?.list.length<3 || index == swiperIndex+1?'swiper-slide-active':''" -->
+          <div class="swiper-slide swiper-slide-active" *ngFor="let item of data?.list; let index = index">
+            <div class="company-label">{{index+1}}</div>
+            <div class="company-content">
+              <img src="assets/images/box_swiper2_prefix.png">
+              <div class="company-middle">{{item.company_name}}</div>
+              <div class="company-suffix">解析量 {{item.num}} 次</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="swiper swiper-no-swiping" style="height: 100%;">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let item of data.list; let index = index">
+            <div class="company-label">{{index+1}}</div>
+            <div class="company-content">
+              <img src="assets/images/box_swiper2_prefix.png">
+              <div class="company-middle">{{item.company_name}}</div>
+              <div class="company-suffix">解析量 {{item.num}} 次</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</app-card>

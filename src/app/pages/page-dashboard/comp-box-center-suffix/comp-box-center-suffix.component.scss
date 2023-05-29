@@ -1,0 +1,42 @@
+.component-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .component-header {
+    width: 100%;
+    height: 86px;
+    font-size: 28px;
+    color: #1AC9FF;
+    padding: 0 74px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-weight: bold;
+  }
+  
+  .component-content {
+    width: 462px;
+    font-style:oblique;
+    font-weight: bold;
+
+    .top-title {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 48px;
+      margin-top: 12px;
+
+      :nth-child(1) {
+        color: #1AC9FF;
+      }
+
+      :nth-child(2) {
+        color: #FF8B1A;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,31 @@
+
+<div class="comp-container">
+  <ng-container *ngFor="let item of [].constructor(maxLength); let index = index">
+    <div 
+      class="number-container" 
+      [ngStyle]="{
+        'width': width+'px', 
+        'height': height+'px', 
+        'background': background,
+        'background-size': '100%',
+        'color': color,
+        'font-size': fontSize+'px',
+        'font-family': fontFamily,
+        'margin': margin
+      }"
+    >
+      <div [ngStyle]="{'transform': 'translate(0, -'+numberArr[index] * 10+'%)', 'transition': numberPrev[index]&&numberPrev[index]==numberArr[index]?'all 0s': 'all .4s'}">
+        <div [ngStyle]="{ 'width': width+'px', 'height': height+'px'}" style="height: 100%; display: flex; align-items: center; justify-content: center; line-height: 0;" *ngFor="let number of allNumberList">{{number}}</div>
+      </div>
+      <!-- <span [ngStyle]="{'transform': 'translate(-50%, -'+numberArr[index] * 10+'%)'}" style="transition: all .4s">{{allNumber}}</span> -->
+    </div>
+    <div 
+      [ngStyle]="{
+        'width': width/3+'px', 
+        'height': height+'px', 
+        'color': color,
+        'font-size': fontSize+'px'
+      }"
+    class="comma-container" *ngIf="(numberArr.length - index - 1) != 0 && (numberArr.length - index - 1) % 4==0"></div>
+  </ng-container>
+</div>
