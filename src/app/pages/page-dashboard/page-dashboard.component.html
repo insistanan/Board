@@ -2,85 +2,85 @@
   <div class="box-header">工业互联网标识解析二级节点（鹰潭）</div>
   <div class="box-prefix">
     <div class="card-container">
-      <app-card title="企业注册数量">
-        <div class="trans-number-container">
-          <div class="trans-number-label">当月完成</div>
-          <app-trans-number
-            [value]="comNumFigureData?comNumFigureData[comNumFigureData?.length - 1]?.seriesData0 : 0"
-            [width]="28"
-            [height]="38"
-            [fontSize]="34"
-            [fontFamily]="'DS-DIGI-1'"
-            [color]="'#00FFCC'"
-            [background]="'url(assets/images/number_bg.png)'"
-            [maxLength]="7"
-          ></app-trans-number>
-        </div>
-        <div style="height: calc(100% - 52px);">
-          <app-chart-b-l [data]="comNumFigureData" name="企业注册数量"></app-chart-b-l>
-        </div>
-      </app-card>
-      <comp-box-swiper2
-        title="应用1-标识解析编码"
-        outerImage="assets/images/tray_yellow.png"
-        innerImage="assets/images/frame_yellow.png"
-        [data]="idCodeParse"
-        (selectChange)="showConfigModal(1)"
-      ></comp-box-swiper2>
+<!--      <app-card title="企业注册数量">-->
+<!--        <div class="trans-number-container">-->
+<!--          <div class="trans-number-label">当月完成</div>-->
+<!--          <app-trans-number-->
+<!--            [value]="comNumFigureData?comNumFigureData[comNumFigureData?.length - 1]?.seriesData0 : 0"-->
+<!--            [width]="28"-->
+<!--            [height]="38"-->
+<!--            [fontSize]="34"-->
+<!--            [fontFamily]="'DS-DIGI-1'"-->
+<!--            [color]="'#00FFCC'"-->
+<!--            [background]="'url(assets/images/number_bg.png)'"-->
+<!--            [maxLength]="7"-->
+<!--          ></app-trans-number>-->
+<!--        </div>-->
+<!--        <div style="height: calc(100% - 52px);">-->
+<!--          <app-chart-b-l [data]="comNumFigureData" name="企业注册数量"></app-chart-b-l>-->
+<!--        </div>-->
+<!--      </app-card>-->
+<!--      <comp-box-swiper2-->
+<!--        title="应用1-标识解析编码"-->
+<!--        outerImage="assets/images/tray_yellow.png"-->
+<!--        innerImage="assets/images/frame_yellow.png"-->
+<!--        [data]="idCodeParse"-->
+<!--        (selectChange)="showConfigModal(1)"-->
+<!--      ></comp-box-swiper2>-->
     </div>
     <div class="card-container">
-      <app-card title="企业产品注册量">
-        <div class="trans-number-container">
-          <div class="trans-number-label">当月完成</div>
-          <app-trans-number
-            [value]="loginNumFigureData?loginNumFigureData[loginNumFigureData?.length - 1]?.seriesData0 : 0"
-            [width]="28"
-            [height]="38"
-            [fontSize]="34"
-            [fontFamily]="'DS-DIGI-1'"
-            [color]="'#00FFCC'"
-            [background]="'url(assets/images/number_bg.png)'"
-            [maxLength]="7"
-          ></app-trans-number>
-        </div>
-        <div style="height: calc(100% - 52px);">
-          <app-chart-b-l name="企业产品注册量" [data]="loginNumFigureData" [color]="['#E7B72D', '#E27125']"></app-chart-b-l>
-        </div>
-      </app-card>
-      <comp-box-swiper2
-        title="应用2-产品溯源"
-        outerImage="assets/images/tray_blue.png"
-        innerImage="assets/images/frame_blue.png"
-        [data]="productTrace"
-        (selectChange)="showConfigModal(2)"
-      ></comp-box-swiper2>
+<!--      <app-card title="企业产品注册量">-->
+<!--        <div class="trans-number-container">-->
+<!--          <div class="trans-number-label">当月完成</div>-->
+<!--          <app-trans-number-->
+<!--            [value]="loginNumFigureData?loginNumFigureData[loginNumFigureData?.length - 1]?.seriesData0 : 0"-->
+<!--            [width]="28"-->
+<!--            [height]="38"-->
+<!--            [fontSize]="34"-->
+<!--            [fontFamily]="'DS-DIGI-1'"-->
+<!--            [color]="'#00FFCC'"-->
+<!--            [background]="'url(assets/images/number_bg.png)'"-->
+<!--            [maxLength]="7"-->
+<!--          ></app-trans-number>-->
+<!--        </div>-->
+<!--        <div style="height: calc(100% - 52px);">-->
+<!--          <app-chart-b-l name="企业产品注册量" [data]="loginNumFigureData" [color]="['#E7B72D', '#E27125']"></app-chart-b-l>-->
+<!--        </div>-->
+<!--      </app-card>-->
+<!--      <comp-box-swiper2-->
+<!--        title="应用2-产品溯源"-->
+<!--        outerImage="assets/images/tray_blue.png"-->
+<!--        innerImage="assets/images/frame_blue.png"-->
+<!--        [data]="productTrace"-->
+<!--        (selectChange)="showConfigModal(2)"-->
+<!--      ></comp-box-swiper2>-->
     </div>
     <div class="card-container">
-      <app-card title="企业标识解析量">
-        <div class="trans-number-container">
-          <div class="trans-number-label">当月完成</div>
-          <app-trans-number
-            [value]="parseNumFigureData?parseNumFigureData[parseNumFigureData?.length - 1]?.seriesData0 : 0"
-            [width]="28"
-            [height]="38"
-            [fontSize]="34"
-            [fontFamily]="'DS-DIGI-1'"
-            [color]="'#00FFCC'"
-            [background]="'url(assets/images/number_bg.png)'"
-            [maxLength]="7"
-          ></app-trans-number>
-        </div>
-        <div style="height: calc(100% - 52px);">
-          <app-chart-b-l name="企业标识解析量" [data]="parseNumFigureData" [color]="['#4F6CFF', '#35C4FF']"></app-chart-b-l>
-        </div>
-      </app-card>
-      <comp-box-swiper2
-        title="应用3-仓储管理"
-        outerImage="assets/images/tray_green.png"
-        innerImage="assets/images/frame_green.png"
-        [data]="warehouseManager"
-        (selectChange)="showConfigModal(3)"
-      ></comp-box-swiper2>
+<!--      <app-card title="企业标识解析量">-->
+<!--        <div class="trans-number-container">-->
+<!--          <div class="trans-number-label">当月完成</div>-->
+<!--          <app-trans-number-->
+<!--            [value]="parseNumFigureData?parseNumFigureData[parseNumFigureData?.length - 1]?.seriesData0 : 0"-->
+<!--            [width]="28"-->
+<!--            [height]="38"-->
+<!--            [fontSize]="34"-->
+<!--            [fontFamily]="'DS-DIGI-1'"-->
+<!--            [color]="'#00FFCC'"-->
+<!--            [background]="'url(assets/images/number_bg.png)'"-->
+<!--            [maxLength]="7"-->
+<!--          ></app-trans-number>-->
+<!--        </div>-->
+<!--        <div style="height: calc(100% - 52px);">-->
+<!--          <app-chart-b-l name="企业标识解析量" [data]="parseNumFigureData" [color]="['#4F6CFF', '#35C4FF']"></app-chart-b-l>-->
+<!--        </div>-->
+<!--      </app-card>-->
+<!--      <comp-box-swiper2-->
+<!--        title="应用3-仓储管理"-->
+<!--        outerImage="assets/images/tray_green.png"-->
+<!--        innerImage="assets/images/frame_green.png"-->
+<!--        [data]="warehouseManager"-->
+<!--        (selectChange)="showConfigModal(3)"-->
+<!--      ></comp-box-swiper2>-->
     </div>
   </div>
   <div class="box-center">
@@ -213,20 +213,20 @@
   </div>
   <div class="box-suffix">
     <div class="card-container">
-      <comp-box-video [data]="1" (onShowPPT)="showPPT($event)"></comp-box-video>
-      <comp-box-video [data]="2" (onShowIFrame)="showIFrame($event)"></comp-box-video>
+<!--      <comp-box-video [data]="1" (onShowPPT)="showPPT($event)"></comp-box-video>-->
+<!--      <comp-box-video [data]="2" (onShowIFrame)="showIFrame($event)"></comp-box-video>-->
       <!-- <comp-box-num-large title="高新区月解析量" [data]="monthParseData0?.this_month" [data1]="monthParseData0?.last_month"></comp-box-num-large>
       <comp-box-num-small title="高新区日均解析量" [data]="dayParseData0?.parse_num"></comp-box-num-small> -->
     </div>
     <div class="card-container">
-      <comp-box-video [data]="3" (onShowPPT)="showPPT($event)"></comp-box-video>
-      <comp-box-video [data]="4" (onShowIFrame)="showIFrame($event)"></comp-box-video>
+<!--      <comp-box-video [data]="3" (onShowPPT)="showPPT($event)"></comp-box-video>-->
+<!--      <comp-box-video [data]="4" (onShowIFrame)="showIFrame($event)"></comp-box-video>-->
       <!-- <comp-box-num-large title="余江区月解析量" [data]="monthParseData1?.this_month" [data1]="monthParseData1?.last_month"></comp-box-num-large>
       <comp-box-num-small title="余江区日均解析量" [data]="dayParseData1?.parse_num"></comp-box-num-small> -->
     </div>
     <div class="card-container">
-      <comp-box-video [data]="5" (onShowPPT)="showPPT($event)"></comp-box-video>
-      <comp-box-video [data]="6" (onShowIFrame)="showIFrame($event)"></comp-box-video>
+<!--      <comp-box-video [data]="5" (onShowPPT)="showPPT($event)"></comp-box-video>-->
+<!--      <comp-box-video [data]="6" (onShowIFrame)="showIFrame($event)"></comp-box-video>-->
       <!-- <comp-box-num-large title="贵溪区月解析量" [data]="monthParseData2?.this_month" [data1]="monthParseData2?.last_month"></comp-box-num-large>
       <comp-box-num-small title="贵溪区日均解析量" [data]="dayParseData2?.parse_num"></comp-box-num-small> -->
     </div>
