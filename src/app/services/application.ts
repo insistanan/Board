@@ -18,6 +18,7 @@ export class TApplication
   {
     window.App = this;
     var host = window.location.host;
-    Config.Host_url = `http://${host}/wms_mh`;
+    // Config.Host_url = `http://${host}/wms_mh`;
+    Config.Host_url = `http://182.109.52.2:28080/wms_mh`;
   }
 }
