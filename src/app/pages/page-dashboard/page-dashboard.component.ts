@@ -26,7 +26,7 @@ export class PageDashboardComponent implements OnInit {
 
   getApplyCount() {
     this.Svc.getApplyCount().then(res => {
-      if (res != null) this.applyCount = res 
+      if (res != null) this.applyCount = res
     })
   }
 
@@ -76,7 +76,7 @@ export class PageDashboardComponent implements OnInit {
   initTimer() {
     this.timer = setInterval(() => {
       this.getData()
-    }, 3000) 
+    }, 3000)
   }
 
   comNumFigure() {
@@ -89,7 +89,7 @@ export class PageDashboardComponent implements OnInit {
         setTimeout(() => {
           this.comNumFigureData = res;
         }, 500);
-        
+
       }
     })
   }
@@ -124,7 +124,7 @@ export class PageDashboardComponent implements OnInit {
     })
   }
 
-  // 
+  //
   idCodeParseList() {
     this.Svc.idCodeParseList().then(res => {
       if(res) this.idCodeParse = res
@@ -171,11 +171,25 @@ export class PageDashboardComponent implements OnInit {
               item.locationStyle = { top: "300px", left: "750px" }
               break;
             case "月湖区":
+              item.area = "高新区";
+              item.map = "assets/images/map_b.png";
+              item.infoStyle = { top: "450px", left: "180px" };
+              item.locationStyle = { top: "360px", left: "890px" }
+              break;
+            case "高新区":
+              item.area = "高新区";
               item.map = "assets/images/map_b.png";
               item.infoStyle = { top: "450px", left: "180px" };
               item.locationStyle = { top: "360px", left: "890px" }
               break;
             case "贵溪区":
+              item.area = "贵溪市";
+              item.map = "assets/images/map_c.png";
+              item.infoStyle = { top: "480px", right: "280px" };
+              item.locationStyle = { top: "500px", right: "900px" }
+              break;
+            case "贵溪市":
+              item.area = "贵溪市";
               item.map = "assets/images/map_c.png";
               item.infoStyle = { top: "480px", right: "280px" };
               item.locationStyle = { top: "500px", right: "900px" }
@@ -193,9 +207,9 @@ export class PageDashboardComponent implements OnInit {
           }, 5000)
         }
 
-        this.dayParseData0 = res.filter((item: any) => item.area == "月湖区")[0];
+        this.dayParseData0 = res.filter((item: any) => item.area == "高新区")[0];
         this.dayParseData1 = res.filter((item: any) => item.area == "余江区")[0];
-        this.dayParseData2 = res.filter((item: any) => item.area == "贵溪区")[0];
+        this.dayParseData2 = res.filter((item: any) => item.area == "贵溪市")[0];
       }
     })
   }
@@ -217,7 +231,7 @@ export class PageDashboardComponent implements OnInit {
   cityLoginNumFigure() {
     this.Svc.cityLoginNumFigure().then(res => {
       if(res) {
-        
+
         this.cityLoginNumFigureData = res;
       }
     })
@@ -249,7 +263,7 @@ export class PageDashboardComponent implements OnInit {
       }
     })
   }
-  
+
 
   thisMonthComNum() {
     this.Svc.thisMonthComNum().then(res => {
@@ -328,7 +342,7 @@ export class PageDashboardComponent implements OnInit {
     this.configLoading = true;
     this.Svc.updateComPk(params).then(res => {
       this.configLoading = false;
-    
+
       if (this.configIndex == '1') this.getComList1()
       if (this.configIndex == '2') this.getComList2()
       if (this.configIndex == '3') this.getComList3()
