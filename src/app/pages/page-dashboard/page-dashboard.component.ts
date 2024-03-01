@@ -11,17 +11,38 @@ export class PageDashboardComponent implements OnInit {
   constructor(private Svc: TApiAppService) { }
 
   ngOnInit(): void {
-    this.getApplyCount()
-    this.getCityList()
-    this.getComList1()
-    this.getComList2()
-    this.getComList3()
+    this.getApplyCount();
+    this.getCityList();
+    this.getComList1();
+    this.getComList2();
+    this.getComList3();
     this.getData();
     this.initTimer();
+
+    setTimeout(() => {
+      // 前菜
+      this.registerNumber = this.todayInfoData.login_num - Math.floor(Math.random() * 50000) - 1;
+      this.parseNumber = this.todayInfoData.parse_num - Math.floor(Math.random() * 100000) - 1;
+      // 圆润增长累计注册量
+      this.initRegisterNumberTimerId = setInterval(() => {
+        if (this.registerNumber < this.todayInfoData?.login_num){
+          this.randomNumber = Math.floor(Math.random() * 5) + 1;
+          this.registerNumber = this.registerNumber + this.randomNumber;
+        }
+      }, 1000 * 1.4);
+      this.parseNumberTimerId = setInterval(() => {
+        if (this.parseNumber < this.todayInfoData?.parse_num){
+          this.randomNumber = Math.floor(Math.random() * 7) + 1;
+          this.parseNumber = this.parseNumber + this.randomNumber;
+        }
+      }, 1000 * 0.7);
+    }, 700);
   }
 
   ngOnDestroy() {
     clearInterval(this.timer);
+    clearInterval(this.initRegisterNumberTimerId);
+    clearInterval(this.parseNumberTimerId);
   }
 
   getApplyCount() {
@@ -32,7 +53,20 @@ export class PageDashboardComponent implements OnInit {
 
   getCityList() {
     this.Svc.getCityList().then(res => {
-      if (res != null) this.cityList = res;
+      if (res != null) {
+        this.cityList = res;
+        res.forEach((item: any) => {
+          switch ( item.city_name) {
+            case "江西鹰潭":
+              setTimeout(() => {
+                item.login_num = this.registerNumber;
+                item.parse_num = this.parseNumber;
+              }, 2000 );
+              break;
+          }
+        });
+        this.cityList = res;
+      }
     })
   }
 
@@ -76,7 +110,7 @@ export class PageDashboardComponent implements OnInit {
   initTimer() {
     this.timer = setInterval(() => {
       this.getData()
-    }, 3000)
+    }, 1000 * 10)
   }
 
   comNumFigure() {
@@ -89,7 +123,6 @@ export class PageDashboardComponent implements OnInit {
         setTimeout(() => {
           this.comNumFigureData = res;
         }, 500);
-
       }
     })
   }
@@ -163,6 +196,7 @@ export class PageDashboardComponent implements OnInit {
   areaParseNumList() {
     this.Svc.areaParseNumList().then(res => {
       if(res) {
+        console.log(res)
         res.forEach((item: any) => {
           switch(item.area) {
             case "余江区":
@@ -171,25 +205,16 @@ export class PageDashboardComponent implements OnInit {
               item.locationStyle = { top: "300px", left: "750px" }
               break;
             case "月湖区":
-              item.area = "高新区";
               item.map = "assets/images/map_b.png";
               item.infoStyle = { top: "450px", left: "180px" };
               item.locationStyle = { top: "360px", left: "890px" }
               break;
             case "高新区":
-              item.area = "高新区";
               item.map = "assets/images/map_b.png";
               item.infoStyle = { top: "450px", left: "180px" };
               item.locationStyle = { top: "360px", left: "890px" }
               break;
-            case "贵溪区":
-              item.area = "贵溪市";
-              item.map = "assets/images/map_c.png";
-              item.infoStyle = { top: "480px", right: "280px" };
-              item.locationStyle = { top: "500px", right: "900px" }
-              break;
             case "贵溪市":
-              item.area = "贵溪市";
               item.map = "assets/images/map_c.png";
               item.infoStyle = { top: "480px", right: "280px" };
               item.locationStyle = { top: "500px", right: "900px" }
@@ -208,6 +233,7 @@ export class PageDashboardComponent implements OnInit {
         }
 
         this.dayParseData0 = res.filter((item: any) => item.area == "高新区")[0];
+        console.log(this.dayParseData0)
         this.dayParseData1 = res.filter((item: any) => item.area == "余江区")[0];
         this.dayParseData2 = res.filter((item: any) => item.area == "贵溪市")[0];
       }
@@ -245,7 +271,17 @@ export class PageDashboardComponent implements OnInit {
 
   todayInfo() {
     this.Svc.todayInfo().then(res => {
-      if(res) this.todayInfoData = res;
+      const todayInfoData = {
+        company_num: 0,
+        login_num: 0,
+        parse_num: 0
+      };
+      if (res) {
+        todayInfoData.company_num = res[0].data;
+        todayInfoData.login_num = parseInt(res[2].data.replace(/,/g, ''));
+        todayInfoData.parse_num = parseInt(res[3].data.replace(/,/g, ''));
+        this.todayInfoData = todayInfoData;
+      }
     })
   }
 
@@ -412,7 +448,14 @@ export class PageDashboardComponent implements OnInit {
   cityLoginNumFigureData: any;
   cityParseNumFigureData: any;
 
+  // 累计注册量
   todayInfoData: any;
+  // 旧的注册量，保留1小时
+  registerNumber: any = 0;
+  parseNumber:any = 0;
+  randomNumber: number = 0;
+  initRegisterNumberTimerId:any;
+  parseNumberTimerId:any;
 
   // 日解析列表
   dayParseData0: any;

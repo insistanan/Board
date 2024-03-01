@@ -179,8 +179,9 @@
       <div class="large-number-container" style="right: 180px; top: 50px">
         <div class="large-number-head">累计注册量</div>
         <div class="large-number-body">
+<!--          [value]="todayInfoData?.login_num || 0"-->
           <app-trans-number
-            [value]="todayInfoData?.login_num || 0"
+            [value]="registerNumber || 0"
             [width]="60"
             [height]="82"
             [fontSize]="80"
@@ -194,8 +195,9 @@
       <div class="large-number-container" style="right: 180px; bottom: 300px">
         <div class="large-number-head">累计解析量</div>
         <div class="large-number-body">
+<!--          [value]="todayInfoData?.parse_num || 0"-->
           <app-trans-number
-            [value]="todayInfoData?.parse_num || 0"
+            [value]="parseNumber|| 0"
             [width]="60"
             [height]="82"
             [fontSize]="80"
@@ -250,7 +252,7 @@
 
   </div>
   <div class="box-footer">
-    <!-- <div>鹰潭市-{{areaParseNumData[mapIndex]?.area}}</div> -->
+     <div>鹰潭市-{{areaParseNumData[mapIndex]?.area}}</div>
   </div>
 </div>
 <comp-frame-view [(visible)]="frameVisible" [data]="frameUrl"></comp-frame-view>

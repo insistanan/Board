@@ -1,0 +1,2 @@
+ng build --prod --base-href ./
+15服务器/var/www/html/MH

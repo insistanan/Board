@@ -1,8 +1,11 @@
 .scale-container {
   width: 100%;
   height: 100%;
+  // flex布局
   display: flex;
+  // 主轴居中 水平布局
   justify-content: center;
+  // 侧轴居中  垂直布局
   align-items: center;
   // background: #00000D;
   position: relative;
